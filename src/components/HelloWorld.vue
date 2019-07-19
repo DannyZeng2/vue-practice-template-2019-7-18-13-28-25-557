@@ -1,39 +1,34 @@
 <template>
+
   <div class="hello">
-    <button @click="plus">+</button>
-    <input v-model="value"/>
-    <button @click="minus">-</button>
+    <div>
+      <input id="count" v-model.number="num">
+      <CounterGroup :CounterNum ="num"></CounterGroup>
+    </div>
   </div>
+
 </template>
 
 <script>
+import CounterGroup from './CounterGroup.vue';
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
 
+  },
+
+  components: {
+    CounterGroup
   },
 
   data(){
-      return{
-        value:0,
-      }
+    return {
+      num:0
+    }
   },
 
   methods:{
-  plus(){
-    this.value++;
-  },
-  
-  minus(){
-    if(this.value>0){
-      this.value--;
-    }
-    
   }
-}
-
-
 
 }
 </script>
