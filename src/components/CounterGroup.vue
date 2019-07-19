@@ -2,8 +2,9 @@
     <div>
 
         <div v-for="index of CounterNum" :key="index">
-            <Counter></Counter>
+            <Counter @plus="plusCount" @minus="minusCount"></Counter>
         </div>
+        <CounterSum :counterSum="sum"></CounterSum>
     </div>
 
 
@@ -11,20 +12,30 @@
 
 <script>
 import Counter from './Counter.vue';
+import CounterSum from './CounterSum.vue';
+
 export default {
   name: 'CounterGroup',
   props:['CounterNum'],
   components: {
-    Counter
+    Counter,
+    CounterSum
   },
 
   data(){
       return{
-        value:0,
+        sum:0,
       }
   },
 
   methods:{
+    plusCount(){
+      this.sum++;
+    },
+
+    minusCount(){
+      this.sum--;
+    }
   
   }
 }

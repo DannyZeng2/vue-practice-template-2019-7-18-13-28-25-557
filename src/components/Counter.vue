@@ -26,10 +26,12 @@ export default {
   methods:{
   plus(){
     this.value++;
+    this.$emit("plus");
   },
   minus(){
     if(this.value>0){
       this.value--;
+      this.$emit("minus");
     }
   }
   }
